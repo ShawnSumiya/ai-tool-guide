@@ -31,17 +31,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const adsClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
   return (
     <html lang="ja">
       <head>
-        {adsClient ? (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsClient}`}
-            crossOrigin="anonymous"
-          />
-        ) : null}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286325354162680"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 antialiased">
         <div className="mx-auto max-w-7xl px-4 py-8">
