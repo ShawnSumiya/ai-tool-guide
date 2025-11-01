@@ -1,16 +1,9 @@
 [build]
   command = "npm run build"
-  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
 [build.environment]
   NODE_VERSION = "20"
-
-# Next.jsのApp RouterとAPI Routes用の設定
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/next"
-  status = 200
 
