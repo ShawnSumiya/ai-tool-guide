@@ -64,13 +64,22 @@ export default function RootLayout({
 
           {/* Footer */}
           <footer className="mt-20 pt-8 border-t border-gray-200">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <div className="text-sm text-gray-600">
-                © {new Date().getFullYear()} AI Tool Guide. All rights reserved.
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div className="text-sm text-gray-600">
+                  © {new Date().getFullYear()} AI Tool Guide. All rights reserved.
+                </div>
+                <div className="flex items-center gap-6 text-sm flex-wrap justify-center">
+                  <Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">ホーム</Link>
+                  <Link href="/submit" className="text-gray-600 hover:text-blue-600 transition-colors">ツール投稿</Link>
+                </div>
               </div>
-              <div className="flex items-center gap-6 text-sm">
-                <Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">ホーム</Link>
-                <Link href="/submit" className="text-gray-600 hover:text-blue-600 transition-colors">ツール投稿</Link>
+              <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-500">
+                <Link href="/privacy" className="hover:text-blue-600 transition-colors">プライバシーポリシー</Link>
+                <span className="text-gray-300">|</span>
+                <Link href="/terms" className="hover:text-blue-600 transition-colors">利用規約</Link>
+                <span className="text-gray-300">|</span>
+                <Link href="/disclaimer" className="hover:text-blue-600 transition-colors">免責事項</Link>
               </div>
             </div>
           </footer>
