@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AIアプリ・Webツール紹介サイト
 
-## Getting Started
+AIで下書きをほぼ自動生成し、最小編集で量産を目指す紹介サイト。
 
-First, run the development server:
+## セットアップ
+
+```bash
+npm i
+cp .env.local .env.local.example # 値は空のまま残す用
+```
+
+`.env.local` に以下を設定:
+
+- `NEXT_PUBLIC_SITE_URL`: 本番のURL（例：`https://yourdomain.com`）**【重要: SEO対策に必須】**
+- `NEXT_PUBLIC_ADSENSE_CLIENT_ID`: `ca-pub-xxxxxxxxxxxxxxxx` 形式
+- `NEXT_PUBLIC_ADSENSE_SLOT_ID`: バナーのスロットID
+- `OPENAI_API_KEY`: OpenAI のAPIキー（任意。未設定時はダミー応答）
+
+## 開発
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ビルド
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ビルド後に `postbuild` で自動的に `sitemap.xml` と `robots.txt` を生成します。
 
-## Learn More
+## 構成
+- `src/app` App Router 構成
+- `content/tools/*.md` 記事データ
+- `src/app/api/generate` AI下書き生成API（暫定）
+- `src/components/Adsense.tsx` AdSense 表示
+- `src/app/rss/route.ts` RSS フィード
 
-To learn more about Next.js, take a look at the following resources:
+## 収益化
+- AdSense クライアントIDとスロットを `.env.local` に設定
+- 表示密度はポリシー準拠でチューニング
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Netlifyへのデプロイ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. GitHubリポジトリの作成とプッシュ
 
-## Deploy on Vercel
+```bash
+# 変更をコミット
+git add .
+git commit -m "Initial commit"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# GitHubで新しいリポジトリを作成後、リモートを追加
+git remote add origin https://github.com/yourusername/your-repo-name.git
+git branch -M main
+git push -u origin main
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. Netlifyでの設定
+
+1. [Netlify](https://app.netlify.com/) にログイン
+2. 「Add new site」→「Import an existing project」
+3. GitHubを選択して、リポジトリを接続
+4. ビルド設定は自動検出されますが、以下を確認：
+   - **Build command**: `npm run build`
+   - **Publish directory**: `.next`
+   - **Node version**: `20`（環境変数で設定可能）
+
+### 3. 環境変数の設定
+
+Netlifyのダッシュボードで「Site settings」→「Environment variables」から以下を設定：
+
+- `NEXT_PUBLIC_SITE_URL`: NetlifyのURL（例：`https://your-site.netlify.app`）またはカスタムドメイン
+- `NEXT_PUBLIC_ADSENSE_CLIENT_ID`: （任意）AdSenseクライアントID
+- `NEXT_PUBLIC_ADSENSE_SLOT_ID`: （任意）AdSenseスロットID
+- `OPENAI_API_KEY`: （任意）OpenAIのAPIキー
+
+### 4. デプロイの確認
+
+- デプロイが完了したら、サイトURLで動作を確認
+- `sitemap.xml` と `robots.txt` が正しく生成されているか確認
+
+## 今後の拡張
+- 管理UIからURL投入→原稿生成→Markdown保存
+- 画像生成/OGP自動化
+- カテゴリ自動タグ付け
