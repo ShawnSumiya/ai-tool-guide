@@ -3,18 +3,23 @@ import './globals.css';
 import Link from 'next/link';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
 export const metadata: Metadata = {
-  title: 'AIアプリ・Webツール紹介サイト',
-  description: 'AIで自動生成するアプリ/ツールのレビューと紹介。',
+  title: {
+    default: 'AI Tool Guide | 最新のAIアプリ・Webツール紹介サイト',
+    template: '%s | AI Tool Guide',
+  },
+  description: '最新のAIアプリ・Webツールを厳選紹介。無料で使える高性能AIツールで、あなたの創造性を解き放ちましょう。2026年最新のツールガイドです。',
   metadataBase: new URL(siteUrl),
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'AIアプリ・Webツール紹介サイト',
-    description: 'AIで自動生成するアプリ/ツールのレビューと紹介。',
+    title: 'AI Tool Guide | 最新のAIアプリ・Webツール紹介サイト',
+    description: '最新のAIアプリ・Webツールを厳選紹介。無料で使える高性能AIツールで、あなたの創造性を解き放ちましょう。',
     url: siteUrl,
     siteName: 'AI Tool Guide',
     type: 'website',
+    locale: 'ja_JP',
     images: [
       {
         url: '/images/logos/website_logo.png',
@@ -23,6 +28,23 @@ export const metadata: Metadata = {
         alt: 'AI Tool Guide',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Tool Guide | 最新のAIアプリ・Webツール紹介サイト',
+    description: '最新のAIアプリ・Webツールを厳選紹介。無料で使える高性能AIツールで、あなたの創造性を解き放ちましょう。',
+    images: ['/images/logos/website_logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -34,11 +56,13 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7286325354162680"
-          crossOrigin="anonymous"
-        />
+        {adsenseClientId && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 antialiased">
         <div className="mx-auto max-w-7xl px-4 py-8">
