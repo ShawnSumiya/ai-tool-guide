@@ -71,8 +71,7 @@ twitterCard: summary_large_image
   <!-- Notta -->
   <section style="background:#fff;border:1px solid #dbeafe;border-left:6px solid #3b82f6;border-radius:14px;padding:14px;">
     <a href="https://www.notta.ai/jp" target="_blank" rel="noopener nofollow">
-      <img src="https://www.notta.ai/favicon.ico" width="56" height="56" alt="Notta logo"
-           style="margin-bottom:8px;border-radius:12px;padding:6px;border:1px solid #eee;background:#fff;">
+      <img src="/images/logos/notta_logo.png" alt="Notta logo" width="58" height="58" loading="lazy" style="display:block;margin-bottom:8px;border-radius:12px;background:#fff;padding:4px;border:1px solid #e5e7eb;box-shadow:0 0 4px rgba(0,0,0,0.05);object-fit:contain;aspect-ratio:1/1;">
     </a>
     <div style="font-size:13px;color:#3b82f6;font-weight:800">🥈 2位</div>
     <h3 style="margin:6px 0;font-size:18px;">Notta（ノッタ）</h3>
