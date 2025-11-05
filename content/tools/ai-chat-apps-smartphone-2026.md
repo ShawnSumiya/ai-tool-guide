@@ -4,9 +4,10 @@ description: ChatGPT、Claude、Geminiなど、スマホで使える最新AIチ�
 category: AIチャット
 tags: ["AI", "チャット", "アプリ", "2026"]
 thumbnail: /og-ai-chat-apps.png
+updatedAt: 2026-02-01
 ---
 
-<h1 style="margin:0;font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.2;">2026年版！スマホで使えるAIチャットアプリ10選</h1>
+<h1 style="margin:0;font-size:clamp(16px,2.8vw,26px);font-weight:800;line-height:1.3;">2026年版！スマホで使えるAIチャットアプリ10選</h1>
 <p style="margin:6px 0 0;color:#6b7280">ChatGPT・Claude・Geminiなど / 無料で使える高性能AIチャットアプリを厳選比較</p>
 <p style="margin:4px 0 16px;color:#9ca3af;font-size:13px">最終更新：2026-02-01</p>
 

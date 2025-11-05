@@ -165,6 +165,43 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com  # 本番URLを設定
 3. ブラウザの開発者ツールでHTMLソースのメタタグを確認
 4. [GoogleのRich Results Test](https://search.google.com/test/rich-results)で構造化データを確認
 
+### 🔧 運用面のSEO対策（推奨）
+
+技術的なSEO対策だけでは不十分です。**Google Search Console**を使用して、サイトの検索パフォーマンスを監視・改善することが重要です。
+
+#### Google Search Consoleの設定手順
+
+1. **[Google Search Console](https://search.google.com/search-console) にアクセス**
+   - Googleアカウントでログイン
+
+2. **サイトを追加**
+   - 「プロパティを追加」をクリック
+   - URLプレフィックスまたはドメイン名を選択して追加
+   - 所有権の確認方法を選択（推奨：HTMLタグまたはHTMLファイルのアップロード）
+
+3. **サイトマップを送信**
+   - 左メニューの「サイトマップ」をクリック
+   - `https://your-domain.com/sitemap.xml` を入力して送信
+   - これにより、Googleが全ページを効率的にクロールできます
+
+4. **インデックス登録の申請（オプション）**
+   - 「URL検査」ツールで重要なページを手動でインデックス申請できます
+
+#### 定期チェック項目
+
+- **カバレッジレポート**：インデックスされているページ数とエラーページを確認
+- **パフォーマンスレポート**：検索クエリ、表示回数、クリック率（CTR）、平均順位を確認
+- **エラーの確認と修正**：クローラーエラーや404エラーがあれば修正し、「検証をリクエスト」で再インデックス申請
+- **Core Web Vitals**：ページの読み込み速度、インタラクティブ性、視覚的安定性を監視
+
+#### 補足ツール
+
+- **[Google Analytics](https://analytics.google.com/)**：トラフィック分析、ユーザー行動の追跡
+- **[PageSpeed Insights](https://pagespeed.web.dev/)**：ページ速度の詳細分析と改善提案
+- **[Rich Results Test](https://search.google.com/test/rich-results)**：構造化データの検証（既に確認方法に記載済み）
+
+**💡 重要：** サイトマップを送信しないと、Googleがすべてのページを自動で見つけられない場合があります。デプロイ後は必ずGoogle Search Consoleでサイトマップを送信してください。
+
 ## 今後の拡張
 - 管理UIからURL投入→原稿生成→Markdown保存
 - 画像生成/OGP自動化

@@ -185,7 +185,7 @@ export default async function ToolDetail({ params }: { params: Promise<{ slug: s
             </span>
           ))}
         </div>
-        <h1 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 leading-tight break-words">
           {tool.title}
         </h1>
         <p className="text-xl text-gray-700 leading-relaxed mb-6">

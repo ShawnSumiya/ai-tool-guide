@@ -20,7 +20,19 @@ const CONTENT_DIR = path.join(process.cwd(), 'content', 'tools');
 export function getAllTools(): Tool[] {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.md'));
-  return files.map((file) => getToolBySlug(file.replace(/\.md$/, '')));
+  const tools = files.map((file) => getToolBySlug(file.replace(/\.md$/, '')));
+  // 最終更新順（降順）でソート
+  return tools.sort((a, b) => {
+    const dateA = a.updatedAt || a.createdAt || '';
+    const dateB = b.updatedAt || b.createdAt || '';
+    if (!dateA && !dateB) return 0;
+    if (!dateA) return 1;
+    if (!dateB) return -1;
+    // Dateオブジェクトに変換して比較（降順：新しい順）
+    const timeA = new Date(dateA).getTime();
+    const timeB = new Date(dateB).getTime();
+    return timeB - timeA;
+  });
 }
 
 export function getToolBySlug(slug: string): Tool {

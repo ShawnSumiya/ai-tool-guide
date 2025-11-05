@@ -8,10 +8,11 @@ ogTitle: 2026年版！無料で使える音声文字起こしツール8選【精
 ogDescription: Whisper、Notta、Otter.aiを中心に、無料で使える高精度な文字起こしツールを精度・速度・操作性で比較。
 ogImage: /og/og-ai-transcription-tools.png
 twitterCard: summary_large_image
+updatedAt: 2025-11-3
 ---
 
 <!-- ページヘッダー -->
-<h1 style="margin:0;font-size:clamp(24px,4vw,36px);font-weight:800;line-height:1.2;">2026年版！無料で使える音声文字起こしツール8選【精度比較】</h1>
+<h1 style="margin:0;font-size:clamp(16px,2.8vw,26px);font-weight:800;line-height:1.3;">2026年版！無料で使える音声文字起こしツール8選【精度比較】</h1>
 <p style="margin:6px 0 0;color:#6b7280">Whisper・Notta・Otter.aiなど / 無料で使える高精度AI文字起こしツールを徹底比較</p>
 <p style="margin:4px 0 16px;color:#9ca3af;font-size:13px">最終更新：2026-02-10</p>
 
